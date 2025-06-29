@@ -1,0 +1,43 @@
+
+main
+{
+  font-family: sans-serif;
+  font-size:small;
+  color: #333;
+  display:flex;
+  margin: 0 auto;
+  margin-top:20px;
+}
+
+aside
+{
+  width: 20%;
+}
+
+section
+{
+  width: 80%;
+}
+
+section img
+{
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.espais
+{
+  padding: 10px;
+}
+
+ul
+{
+  list-style-type: none;
+}
+
+li img
+{
+  width: 90%;
+}
