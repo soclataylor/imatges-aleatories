@@ -43,17 +43,17 @@ Implementar un gestor d’imatges aleatòries utilitzant Angular 20 que inclogui
    ```bash
    git clone https://github.com/soclataylor/imatges-aleatories.git
    cd imatges-aleatories
-  
+    ```
 2. Instal·la les dependències:
 
   ```bash
   npm install
-
+```
 3. Executa el servidor de desenvolupament:
 
    ```bash
     ng serve
-
+```
 4. Obre el navegador a http://localhost:4200
 
 
