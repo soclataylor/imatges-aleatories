@@ -1,59 +1,63 @@
-# ImatgesAleatories
+# 🎲 Imatges Aleatòries – Projecte Angular 20
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
+Aquest projecte és una pràctica del curs de Juliol 2025 basada en Angular v20. L’objectiu és implementar una aplicació que gestioni la selecció aleatòria d’imatges després d’identificar-se amb un nom d’usuari.
 
-## Development server
+## 👩‍🏫 Exercici proposat
 
-To start a local development server, run:
+Implementar un gestor d’imatges aleatòries utilitzant Angular 20 que inclogui:
 
-```bash
-ng serve
-```
+- ✅ Creació de components (`App`, `Header`)
+- ✅ Data binding (interpolació, property binding, event binding, two-way binding)
+- ✅ Modificació del DOM mitjançant Control Flow syntax (`@if`, `@for`)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🧱 Estructura funcional
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 🧑‍💻 Abans de fer login
+- Es mostra un input per escriure el nom d’usuari.
+- Un botó permet iniciar la sessió.
 
-```bash
-ng generate component component-name
-```
+### 👋 Després de fer login
+- Es mostra un missatge de benvinguda.
+- Una banda lateral conté miniatures d’imatges fixes.
+- Hi ha un botó **Seleccionar** que mostra una imatge aleatòria en gran a la dreta.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 🧪 Tecnologies i funcionalitats utilitzades
 
-## Building
+- Angular v20
+- Control Flow syntax (`@if`, `@else`, `@for`)
+- Formularis amb `ngModel`
+- Gestió d’estat amb variables públiques (`isLoggedIn`, `username`, `imatgeActual`)
+- Componentització (`HeaderComponent` separat)
+- HTML5 + CSS bàsic
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## ▶️ Com executar el projecte
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+1. Clona aquest repositori:
 
-## Running unit tests
+   ```bash
+   git clone https://github.com/soclataylor/imatges-aleatories.git
+   cd imatges-aleatories
+  
+2. Instal·la les dependències:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+  ```bash
+  npm install
 
-```bash
-ng test
-```
+3. Executa el servidor de desenvolupament:
 
-## Running end-to-end tests
+   ```bash
+    ng serve
 
-For end-to-end (e2e) testing, run:
+4. Obre el navegador a http://localhost:4200
 
-```bash
-ng e2e
-```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+📁 Autor
+Maria dels Àngels Cerveró Abelló
+Exercici 1 – Juliol 2025
+Implementat per @soclataylor
