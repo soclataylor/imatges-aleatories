@@ -57,4 +57,11 @@ export class App {
     //Posem el valor de la imatge actual a l'índex aleatori generat
    this.imatgeActual = this.gossos[randomIndex];
   }
+
+  public onImageClick(index: number) //li passem l'índex de la imatge clicada
+  {
+    //Es mostrarà amb gros la imatge que cliqui l'usuari:
+    //console.log('Has clicat sobre la imatge: número' + index);
+    this.imatgeActual = this.gossos[index];
+  }
 }

@@ -20,7 +20,13 @@
 
       <ul>
         @for (gos  of gossos; track $index) {
-          <li><img src="{{gossos[$index]}}"></li>
+          <!--hem de controlar si l'usuari fa clic sobre una de les imatges-->
+          <!-- per tant, afegim un esdeveniment clic-->
+          <li>
+            <!--<img src="{{gossos[$index]}}" (click)="onImageClick($index)">-->
+            <!-- ho fem amb la nova sintaxi:-->
+              <img [src]="gos" (click)="onImageClick($index)">
+          </li>
         }
       </ul>
 
