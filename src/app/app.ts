@@ -5,10 +5,18 @@ import { Header } from "./layout/header/header";
 import { signal, Signal, WritableSignal } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
+import { ImageDetail } from './elements/image-detail/image-detail';
+import { ImageList } from './elements/image-list/image-list';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, FormsModule],
+  imports: [
+    RouterOutlet, 
+    Header, 
+    FormsModule, 
+    ImageDetail,
+    ImageList
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
