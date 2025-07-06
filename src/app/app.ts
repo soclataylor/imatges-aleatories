@@ -23,11 +23,48 @@ export class App {
 
   /*public gossos = ["img/cocker.jpeg", "img/foxterrier.jpg",
                     "img/schnauzer.jpeg", "img/teckel.jpeg"];*///ho passem a Signal
-  public gossos: Signal<string[]> = signal(["img/cocker.jpeg", "img/foxterrier.jpg", "img/schnauzer.jpeg", "img/teckel.jpeg"]);
+  //public gossos: WritableSignal<string[]> = signal(
+    //["img/cocker.jpeg", "img/foxterrier.jpg", "img/schnauzer.jpeg", "img/teckel.jpeg"]);
+
+  //Com que l'usuari ens entrarà la ruta de la imatge i la descripció, modifiquem l'array de gossos
+  //per tal que les imatges tinguin tan la ruta com el títol:
+  public gossos: WritableSignal<{ img: string; title: string }[]> = signal([
+  /*{ img: "img/cocker.jpeg", title: "Cocker" },
+  { img: "img/foxterrier.jpg", title: "Fox Terrier" },
+  { img: "img/schnauzer.jpeg", title: "Schnauzer" },
+  { img: "img/teckel.jpeg", title: "Teckel" }*/
+]);
 
   //public imatgeActual: string = ''; //guardarem la imatge que es mostrarà //ho passem a WritableSignal7
   public imatgeActual: WritableSignal<string> = signal('');
 
+  //Variables per afegir noves imatges per mitjà del formulari:
+  public rutaImatge: string = '';
+  public titolImatge: string = '';
+
+  //CONSTRUCTOR per inicialitzar l'aplicació:
+  //inicialitzarem les dades dels gossos
+  constructor()
+  {
+    //Primer mirem si hi ha dades carregades a localStorage, per tal de no sobreescriure-les:
+    const dadesGossos = localStorage.getItem('Imatges'); //ho guardem en una constant
+
+    if(dadesGossos) //si hi ha dades a localStorage
+    { 
+      //Les dades que ens retorna localStorage són un string, per tant les hem de convertir a JSON i després a un array
+      //Per això fem un parse:
+      this.gossos.set(JSON.parse(dadesGossos));
+    }
+
+    else //no hi ha dades emmagatzemades al localStorage
+    {
+      //Guardem les gossos a localStorage per persistir les dades
+      //Li posem de nom 'Imatges' i les convertim a JSON i després a string perquè localStorage només pot guardar strings
+      localStorage.setItem('Imatges', JSON.stringify(this.gossos()));
+    }
+    
+  }
+  
   // GETTER per poder recuperar el nom d'usuari:
   //(no cal si l'atribut és públic)
   get getusername()
@@ -69,14 +106,22 @@ export class App {
   public imatgeAleatoria()
   {
     //Hem de generar un número aleatori entre 0 i la mida de l'array - 1
-    const randomIndex = Math.floor(Math.random() * this.gossos.length);
+    //const randomIndex = Math.floor(Math.random() * this.gossos().length);
+    //Ara no podem accedir a .lth perquè gossos és un signal,
+    //sinó que hem d'utilitzar el mètode get() per obtenir el valor
+
+    //Primer recuperem l'array de gossos com a variable
+    const arrayGossos = this.gossos();
+
+    //Generem un índex aleatori:
+    const randomIndex = Math.floor(Math.random() * arrayGossos.length);
+
     //Posem el valor de la imatge actual a l'índex aleatori generat
-    
-    //this.imatgeActual = this.gossos[randomIndex];
-    //Ho passem a signal:
-    //No podem accedir al signal com si fos un array,
-    //sinó que hem d'utilitzar el mètode get() per obtenir el valor actual del signal
-    this.imatgeActual.set(this.gossos()[randomIndex]);
+    this.imatgeActual.set(arrayGossos[randomIndex].img);
+
+
+    console.log('Random seleccionat:', arrayGossos[randomIndex]);
+    console.log('Actual:', this.imatgeActual());
   }
 
   public onImageClick(index: number) //li passem l'índex de la imatge clicada
@@ -84,7 +129,25 @@ export class App {
     //Es mostrarà amb gros la imatge que cliqui l'usuari:
     //console.log('Has clicat sobre la imatge: número' + index);
     //this.imatgeActual = this.gossos[index];
-    //Ho passem a signal:
-    this.imatgeActual.set(this.gossos()[index]);
+    //Ho passem a signal i accedim al valor de la imatge
+    this.imatgeActual.set(this.gossos()[index].img);
+  }
+
+  public afegirImatge()
+  {
+    //Afegim la nova imatge a l'array de gossos:
+    //Sobre un signal no podem fer un push directament
+    //Però sí que podem fer un update que ens permet modificar el valor del signal
+    this.gossos.update(g => [...g, { 
+      img: this.rutaImatge,  //Li passem cada valor a cada item de la imatge
+      title: this.titolImatge 
+    }]);
+
+    //Ho passem a localStorage:
+    localStorage.setItem('Imatges', JSON.stringify(this.gossos()));
+
+    //Reinicialitzem la ruta i el títol de la imatge:
+    this.rutaImatge = '';
+    this.titolImatge = '';
   }
 }

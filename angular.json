@@ -14,13 +14,7 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
-<<<<<<< HEAD
             "polyfills": [],
-=======
-            "polyfills": [
-              "zone.js"
-            ],
->>>>>>> 21c57c88d2503b6a165b61375adbb9b621fa84dc
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -74,14 +68,7 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
-<<<<<<< HEAD
             "polyfills": [],
-=======
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
->>>>>>> 21c57c88d2503b6a165b61375adbb9b621fa84dc
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
