@@ -15,71 +15,14 @@
   <p>Hola, {{ username() }}</p>
   <button (click)="logout()"> Tancar Sessió </button>
 
-  <!-- formulari per poder entrar una nova imatge-->
-  <!-- es mostrarà tant si hi ha dades de gossos, com si no n'hi ha-->
-    
-      <h2>Afegir nova imatge</h2>
-      <label>Ruta de la imatge: </label>
-      <input type="text" [(ngModel)]="rutaImatge"><br>
+  <!-- si està loguejat, mostrem els components de l'aside i la imatge ampliada-->
+  <app-image-list
+    [gossos]="gossos()"
+    (imatgeSelec)="actualitzarImatge($event)"
+    (imatgeNova)="afegirImatgeDelFormulari($event)"
+    ></app-image-list>
 
-      <label>Títol de la imatge: </label>
-      <input type="text" [(ngModel)]="titolImatge"><br>
-
-      <button (click)="afegirImatge()">Afegir Imatge</button>
-  
-  <!--contingut-->
-  <main>
-    
-    <!--només si hi ha dades mostrarem les imatges -->
-      @if (gossos().length > 0)
-      {
-        Hi ha dades de gossos a l'array local.
-
-        <!--barra lateral amb els thumbnails-->
-        <aside class="espais">
-          
-          <ul>
-            <!--@for (gos  of gossos; track $index) {-->
-            <!-- ho passem a signal-->
-            @for (gos  of gossos(); track $index) {
-              <!--hem de controlar si l'usuari fa clic sobre una de les imatges-->
-              <!-- per tant, afegim un esdeveniment clic-->
-              <li>
-                <!--<img src="{{gossos[$index]}}" (click)="onImageClick($index)">-->
-                <!-- ho fem amb la nova sintaxi:-->
-                  <img [src]="gos.img" (click)="onImageClick($index)">
-              </li>
-            }
-          </ul>
-
-          <button (click)="imatgeAleatoria()">Seleccionar</button>
-
-        </aside>
-
-        <!--fotografia ampliada-->
-        <section class="espais">
-
-          <!--primer hem de comprovar si hi ha alguna imatge actual-->
-          <!--@if(imatgeActual != '')-->
-          <!-- ho passem a signal -->
-          @if(imatgeActual() != '')
-          {
-            <!--<img src="{{ imatgeActual }}" alt="Gos seleccionat">-->
-            <!-- Ho passem a signal-->
-            <img src="{{ imatgeActual() }}" alt="Gos seleccionat">
-
-          }
-
-        </section>
-      }
-  </main>
-
-  <div id="espai-components-nous">
-    <!-- per l'exercici 3-->
-    <app-image-list></app-image-list>
-    <app-image-detail></app-image-detail>
-
-  </div>
+  <app-image-detail [imatge]="imatgeActual()"></app-image-detail>
 }
-  
+
 

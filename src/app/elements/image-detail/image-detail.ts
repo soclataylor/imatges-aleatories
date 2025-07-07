@@ -9,9 +9,13 @@ import { signal, Signal, input, InputSignal,WritableSignal } from '@angular/core
 })
 export class ImageDetail {
 
-  //Input Signal per rebre el llistat de gossos: 
-  public gossos: InputSignal<{ rutaImatge: string; titolImatge: string; }[]> =
-    input([] as { rutaImatge: string; titolImatge: string; }[]);
+  //Input Signal per rebre el llistat de gossos: ARA JA NO CAL
+  /*public gossos: InputSignal<{ rutaImatge: string; titolImatge: string; }[]> =
+    input([] as { rutaImatge: string; titolImatge: string; }[]);*/
 
-    
+
+  //Input Signal per rebre la imatge actual seleccionada:
+  public imatge: InputSignal<string> = input('');
+
+
 }

@@ -1,1 +1,17 @@
 <!-- ImageDetail: serà el component que gestionarà la visualització en gran de la imatge escollida-->
+<!--fotografia ampliada-->
+        <section class="espais">
+
+          <!--primer hem de comprovar si hi ha alguna imatge actual-->
+          <!--@if(imatgeActual != '')-->
+          <!-- ho passem a signal -->
+          @if(imatge() != '')
+          {
+            <!--<img src="{{ imatgeActual }}" alt="Gos seleccionat">-->
+            <!-- Ho passem a signal-->
+            <img src="{{ imatge() }}" alt="Gos seleccionat">
+
+          }
+
+        </section>
+

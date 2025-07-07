@@ -11,9 +11,9 @@ import { ImageList } from './elements/image-list/image-list';
 @Component({
   selector: 'app-root',
   imports: [
-    RouterOutlet, 
-    Header, 
-    FormsModule, 
+    RouterOutlet,
+    Header,
+    FormsModule,
     ImageDetail,
     ImageList
   ],
@@ -47,8 +47,9 @@ export class App {
   public imatgeActual: WritableSignal<string> = signal('');
 
   //Variables per afegir noves imatges per mitjà del formulari:
-  public rutaImatge: string = '';
-  public titolImatge: string = '';
+  //Ho comentem perquè això ja ho gestiona el fill image-list.ts
+  //public rutaImatge: string = '';
+  //public titolImatge: string = '';
 
   //CONSTRUCTOR per inicialitzar l'aplicació:
   //inicialitzarem les dades dels gossos
@@ -58,7 +59,7 @@ export class App {
     const dadesGossos = localStorage.getItem('Imatges'); //ho guardem en una constant
 
     if(dadesGossos) //si hi ha dades a localStorage
-    { 
+    {
       //Les dades que ens retorna localStorage són un string, per tant les hem de convertir a JSON i després a un array
       //Per això fem un parse:
       this.gossos.set(JSON.parse(dadesGossos));
@@ -70,9 +71,9 @@ export class App {
       //Li posem de nom 'Imatges' i les convertim a JSON i després a string perquè localStorage només pot guardar strings
       localStorage.setItem('Imatges', JSON.stringify(this.gossos()));
     }
-    
+
   }
-  
+
   // GETTER per poder recuperar el nom d'usuari:
   //(no cal si l'atribut és públic)
   get getusername()
@@ -128,27 +129,41 @@ export class App {
     this.imatgeActual.set(arrayGossos[randomIndex].img);
 
 
-    console.log('Random seleccionat:', arrayGossos[randomIndex]);
-    console.log('Actual:', this.imatgeActual());
+    //console.log('Random seleccionat:', arrayGossos[randomIndex]);
+    //console.log('Actual:', this.imatgeActual());
   }
 
-  public onImageClick(index: number) //li passem l'índex de la imatge clicada
+  //VE DEL FILL imatge-list.ts
+  public actualitzarImatge(imatge: { img: string; title: string }): void
+  //Actualitza la imatge actual amb la imatge seleccionada
   {
     //Es mostrarà amb gros la imatge que cliqui l'usuari:
     //console.log('Has clicat sobre la imatge: número' + index);
     //this.imatgeActual = this.gossos[index];
     //Ho passem a signal i accedim al valor de la imatge
-    this.imatgeActual.set(this.gossos()[index].img);
+    this.imatgeActual.set(imatge.img);
+
+    //També li passem el títol de la imatge per tal de mostrar-lo a image-detail:
+
   }
 
-  public afegirImatge()
+  //VE DEL FILL image-list.ts
+  public afegirImatgeDelFormulari(imatge: { img: string; title: string }): void
+  //Aquesta funció s'executarà quan l'usuari prem el botó d'afegir imatge
+  //s'actualitzarà l'array de gossos i també el localStorage
+  {
+    this.gossos.update(g => [...g, imatge]); //Afegim la nova imatge a l'array de gossos
+    localStorage.setItem('Imatges', JSON.stringify(this.gossos())); //Actualitzem el localStorage
+  }
+
+  /*public afegirImatge()
   {
     //Afegim la nova imatge a l'array de gossos:
     //Sobre un signal no podem fer un push directament
     //Però sí que podem fer un update que ens permet modificar el valor del signal
-    this.gossos.update(g => [...g, { 
+    this.gossos.update(g => [...g, {
       img: this.rutaImatge,  //Li passem cada valor a cada item de la imatge
-      title: this.titolImatge 
+      title: this.titolImatge
     }]);
 
     //Ho passem a localStorage:
@@ -157,5 +172,5 @@ export class App {
     //Reinicialitzem la ruta i el títol de la imatge:
     this.rutaImatge = '';
     this.titolImatge = '';
-  }
+  }*/
 }
