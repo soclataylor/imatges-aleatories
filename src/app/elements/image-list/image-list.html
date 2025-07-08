@@ -2,25 +2,31 @@
   <!-- formulari per poder entrar una nova imatge-->
   <!-- es mostrarà tant si hi ha dades de gossos, com si no n'hi ha-->
 
+<section class="formulari">
       <h2>Afegir nova imatge</h2>
+
       <label>Ruta de la imatge: </label>
-      <input type="text" [(ngModel)]="rutaImatge"><br>
+      <input type="text" [(ngModel)]="rutaImatge"><br><br>
 
       <label>Títol de la imatge: </label>
       <input type="text" [(ngModel)]="titolImatge"><br>
 
+       <p>La ruta de les imatges és <em>img/nomImatge.extensió</em></p>
+
       <button (click)="afegirImatge()">Afegir Imatge</button>
+</section>
 
   <!--contingut-->
   <main>
 
+    <h2>Els peluts</h2>
+
     <!--només si hi ha dades mostrarem les imatges -->
       @if (gossos().length > 0)
       {
-        Hi ha dades de gossos a l'array local.
 
         <!--barra lateral amb els thumbnails-->
-        <aside class="espais">
+        <aside class="barra-lateral">
 
           <ul>
             <!--@for (gos  of gossos; track $index) {-->

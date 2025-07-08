@@ -1,0 +1,14 @@
+#imatge-ampliada
+{
+  /*background-color: orangered;*/
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+section img
+{
+  width: 100%;
+  height: auto;
+}
