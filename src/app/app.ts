@@ -24,10 +24,12 @@ export class App {
   protected title = 'imatges-aleatories';
 
   //public username: string= ''; //ho passem a WritableSignal
-  public username: WritableSignal<string> = signal('');
+  //ELIMINEM LA FUNCIONALITAT D'INICI DE SESSIÓ
+  //public username: WritableSignal<string> = signal('');
 
   //public isLoggedIn: boolean = false;//Per controlar si l'usuari està loguejat//ho passem a WritableSignal
-  public isLoggedIn: WritableSignal<boolean> = signal(false);
+  //ELIMINEM LA FUNCIONALITAT D'INICI DE SESSIÓ
+ //public isLoggedIn: WritableSignal<boolean> = signal(false);
 
   /*public gossos = ["img/cocker.jpeg", "img/foxterrier.jpg",
                     "img/schnauzer.jpeg", "img/teckel.jpeg"];*///ho passem a Signal
@@ -76,21 +78,24 @@ export class App {
 
   // GETTER per poder recuperar el nom d'usuari:
   //(no cal si l'atribut és públic)
-  get getusername()
+  //ELIMINEM LA FUNCIONALITAT D'INICI DE SESSIÓ
+  /*get getusername()
   {
     return this.username;
-  }
+  }*/
 
   // SETTER per poder establir el nom d'usuari:
   //(no cal si l'atribut és públic)
-  public setUsername(username: string)
+  //ELIMINEM LA FUNCIONALITAT D'INICI DE SESSIÓ
+  /*public setUsername(username: string)
   {
     //this.username = username;
     //Ho passem a signal:
     this.username.set(username);
-  }
+  }*/
 
-  public login(): void
+  //ELIMINEM LA FUNCIONALITAT D'INICI DE SESSIÓ
+  /*public login(): void
   {
     //if (this.username.trim() !== '')
     //Ho passem a signal:
@@ -102,6 +107,7 @@ export class App {
     }
   }
 
+  //ELIMINEM LA FUNCIONALITAT D'INICI DE SESSIÓ
   public logout()
   {
     //this.isLoggedIn = false;
@@ -110,7 +116,7 @@ export class App {
     //ho passem a signal:
     //this.username = '';
     this.username.set('');
-  }
+  }*/
 
   public imatgeAleatoria()
   {

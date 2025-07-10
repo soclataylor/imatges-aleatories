@@ -1,24 +1,24 @@
 <app-header></app-header>
 
+  <!--ELIMINEM LA FUNCIONALITAT D'INICI DE SESSIÓ-->
+    <!--@if ( !isLoggedIn()){ usuari no loguejat 
 
-    @if ( !isLoggedIn()){ <!-- usuari no loguejat -->
-
-      <div class="benvinguda-i-login-logout">
+      <div class="benvinguda-i-login-logout">-->
         <!--demanem dades per fer el login-->
-        <input type="text" [(ngModel)]="username" placeholder="Username">
+        <!--<input type="text" [(ngModel)]="username" placeholder="Username">
         <br>
         <button id="sessio" (click)="login()"> Iniciar Sessió </button>
-      </div>
+      </div>-->
 
-    } @else {<!--usuari loguejat-->
+    <!---} @else {<-usuari loguejat-->
 
       <!--mostrem el contingut-->
       <!--<p>Hola, {{ username }}</p>-->
       <!--ho passem a signal-->
-      <div class="benvinguda-i-login-logout">
+      <!-- <div class="benvinguda-i-login-logout">
         <p>Hola, <strong>{{ username() }}</strong>!!</p>
         <button (click)="logout()"> Tancar Sessió </button>
-      </div>
+      </div>-->
 
 
   <section class="contenidor-flex">
@@ -31,6 +31,8 @@
 
     <app-image-detail [imatge]="imatgeActual()"></app-image-detail>
   </section>
-}
+<!---}-->
+  <!--ELIMINEM LA FUNCIONALITAT D'INICI DE SESSIÓ-->
+
 
 
