@@ -38,15 +38,22 @@ export class App {
 
   //Com que l'usuari ens entrarà la ruta de la imatge i la descripció, modifiquem l'array de gossos
   //per tal que les imatges tinguin tan la ruta com el títol:
-  public gossos: WritableSignal<{ img: string; title: string }[]> = signal([
-  /*{ img: "img/cocker.jpeg", title: "Cocker" },
-  { img: "img/foxterrier.jpg", title: "Fox Terrier" },
-  { img: "img/schnauzer.jpeg", title: "Schnauzer" },
-  { img: "img/teckel.jpeg", title: "Teckel" }*/
+  public gossos: WritableSignal<{ autors:string, data:string, expl: string, url:string, titol:string }[]> = signal([
+  { autors:"Mariona Batalla Taylor", data: "06/03/1985", expl: "Explicació Schnauzer", url: "img/schnauzer.jpeg", titol: "Schnauzer" },
+  { autors:"Mariona Batalla Taylor", data: "06/03/1985", expl: "Explicació Cocker", url: "img/cocker.jpeg", titol: "Cocker" },
+  { autors:"Mariona Batalla Taylor", data: "06/03/1985", expl: "Explicació Fox Terrier", url: "img/foxterrier.jpg", titol: "Fox Terrier" },
+  { autors:"Mariona Batalla Taylor", data: "06/03/1985", expl: "Explicació Teckel", url: "img/teckel.jpeg", titol: "Teckel" }
 ]);
 
   //public imatgeActual: string = ''; //guardarem la imatge que es mostrarà //ho passem a WritableSignal7
-  public imatgeActual: WritableSignal<string> = signal('');
+  //public imatgeActual: WritableSignal<string> = signal('');
+  public imatgeActual: WritableSignal<{ autors: string; data: string; expl: string; url: string; titol: string }> = signal({
+  autors: '',
+  data: '',
+  expl: '',
+  url: '',
+  titol: ''
+});
 
   //Variables per afegir noves imatges per mitjà del formulari:
   //Ho comentem perquè això ja ho gestiona el fill image-list.ts
@@ -58,7 +65,7 @@ export class App {
   constructor()
   {
     //Primer mirem si hi ha dades carregades a localStorage, per tal de no sobreescriure-les:
-    const dadesGossos = localStorage.getItem('Imatges'); //ho guardem en una constant
+    const dadesGossos = localStorage.getItem('imatges'); //ho guardem en una constant
 
     if(dadesGossos) //si hi ha dades a localStorage
     {
@@ -71,7 +78,7 @@ export class App {
     {
       //Guardem les gossos a localStorage per persistir les dades
       //Li posem de nom 'Imatges' i les convertim a JSON i després a string perquè localStorage només pot guardar strings
-      localStorage.setItem('Imatges', JSON.stringify(this.gossos()));
+      localStorage.setItem('imatges', JSON.stringify(this.gossos()));
     }
 
   }
@@ -132,29 +139,25 @@ export class App {
     const randomIndex = Math.floor(Math.random() * arrayGossos.length);
 
     //Posem el valor de la imatge actual a l'índex aleatori generat
-    this.imatgeActual.set(arrayGossos[randomIndex].img);
+    this.imatgeActual.set(arrayGossos[randomIndex]);
 
 
     //console.log('Random seleccionat:', arrayGossos[randomIndex]);
     //console.log('Actual:', this.imatgeActual());
   }
 
-  //VE DEL FILL imatge-list.ts
-  public actualitzarImatge(imatge: { img: string; title: string }): void
+  public actualitzarImatge(imatge: { autors:string, data:string, expl: string, url:string, titol:string }): void
   //Actualitza la imatge actual amb la imatge seleccionada
   {
     //Es mostrarà amb gros la imatge que cliqui l'usuari:
     //console.log('Has clicat sobre la imatge: número' + index);
     //this.imatgeActual = this.gossos[index];
     //Ho passem a signal i accedim al valor de la imatge
-    this.imatgeActual.set(imatge.img);
-
-    //També li passem el títol de la imatge per tal de mostrar-lo a image-detail:
-
+    this.imatgeActual.set(imatge);
   }
 
-  //VE DEL FILL image-list.ts
-  public afegirImatgeDelFormulari(imatge: { img: string; title: string }): void
+  //VE DEL FILL afegir-imatges.ts
+  public afegirImatgeDelFormulari(imatge: { autors:string, data:string, expl: string, url:string, titol:string }): void
   //Aquesta funció s'executarà quan l'usuari prem el botó d'afegir imatge
   //s'actualitzarà l'array de gossos i també el localStorage
   {

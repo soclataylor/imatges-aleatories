@@ -15,7 +15,7 @@ export class ImageDetail {
 
 
   //Input Signal per rebre la imatge actual seleccionada:
-  public imatge: InputSignal<string> = input('');
+  public imatge: InputSignal<{ autors: string; data: string; expl: string; url: string; titol: string; }> = input({ autors: '', data: '', expl: '', url: '', titol: '' });
 
 
 }

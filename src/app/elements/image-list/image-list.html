@@ -1,7 +1,7 @@
 
   <!-- formulari per poder entrar una nova imatge-->
   <!-- es mostrarà tant si hi ha dades de gossos, com si no n'hi ha-->
-
+<!--
 <section class="formulari">
       <h2>Afegir nova imatge</h2>
 
@@ -15,7 +15,7 @@
 
       <button (click)="afegirImatge()">Afegir Imatge</button>
 </section>
-
+-->
   <!--contingut-->
   <main>
 
@@ -37,7 +37,7 @@
               <li>
                 <!--<img src="{{gossos[$index]}}" (click)="onImageClick($index)">-->
                 <!-- ho fem amb la nova sintaxi:-->
-                  <img [src]="gos.img" (click)="onImageClick($index)">
+                  <img [src]="gos.url" (click)="onImageClick($index)">
               </li>
             }
           </ul>

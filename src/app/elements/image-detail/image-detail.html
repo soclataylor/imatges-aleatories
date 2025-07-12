@@ -5,11 +5,11 @@
           <!--primer hem de comprovar si hi ha alguna imatge actual-->
           <!--@if(imatgeActual != '')-->
           <!-- ho passem a signal -->
-          @if(imatge() != '')
+          @if(imatge().url != '')
           {
             <!--<img src="{{ imatgeActual }}" alt="Gos seleccionat">-->
             <!-- Ho passem a signal-->
-            <img src="{{ imatge() }}" alt="Gos seleccionat">
+            <img src="{{ imatge().url }}" alt="Gos seleccionat">
 
           }
 

@@ -1,0 +1,35 @@
+<!-- Formulari per afegir noves imatges -->
+
+<!-- Les dades de les imatges seran:
+    Autors
+    Data
+    Explicació
+    URL
+    Títol
+-->
+<h2>Afegir una imatge</h2>
+
+<!-- Autors -->
+<label>Autors de la imatge: </label>
+<input type="text" [(ngModel)]="autorsImatge"><br><br>
+
+<!-- Data -->
+<label>Data de la imatge: </label>
+<input type="text" [(ngModel)]="dataImatge"><br>
+
+<!-- Explicació -->
+<label>Explicació de la imatge: </label>
+<input type="text" [(ngModel)]="explicacioImatge"><br>
+
+<!-- URL -->
+<label>URL de la imatge: </label>
+<input type="text" [(ngModel)]="urlImatge"><br>
+
+<!-- Títol -->
+<label>Títol de la imatge: </label>
+<input type="text" [(ngModel)]="titolImatge"><br>
+
+<button (click)="afegirImatge()">Afegir Imatge</button>
+
+
+<!--<app-formulari-imatge (imatgeNova)="afegirImatgeDelFormulari($event)"></app-formulari-imatge>-->
