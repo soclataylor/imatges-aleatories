@@ -182,4 +182,16 @@ export class App {
     this.rutaImatge = '';
     this.titolImatge = '';
   }*/
+
+  public buidarImatgeActual(): void
+  {
+    console.log("Pare buidant la imatge actual");
+    this.imatgeActual.set({
+      autors: '',
+      data: '',
+      expl: '',
+      url: '',
+      titol: ''
+    })
+  }
 }

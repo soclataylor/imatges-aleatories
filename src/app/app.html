@@ -27,7 +27,10 @@
       (imatgeSelec)="actualitzarImatge($event)"
       ></app-image-list>
 
-    <app-image-detail [imatge]="imatgeActual()"></app-image-detail>
+    <app-image-detail 
+        [imatge]="imatgeActual()"
+        (tancaImatge)="buidarImatgeActual()">
+    </app-image-detail>
   </section>
 <!---}-->
   <!--ELIMINEM LA FUNCIONALITAT D'INICI DE SESSIÓ-->

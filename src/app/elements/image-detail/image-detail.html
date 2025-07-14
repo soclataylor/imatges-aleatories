@@ -7,10 +7,16 @@
           <!-- ho passem a signal -->
           @if(imatge().url != '')
           {
-            <!--<img src="{{ imatgeActual }}" alt="Gos seleccionat">-->
-            <!-- Ho passem a signal-->
-            <img src="{{ imatge().url }}" alt="Gos seleccionat">
+            <div id="contenidor-imatge">
 
+              <!--"creu per tancar la visualització d'una imatge"-->
+              <button class="tancar" (click)="tancarImatge()">✖</button>
+      
+              <!--<img src="{{ imatgeActual }}" alt="Gos seleccionat">-->
+              <!-- Ho passem a signal-->
+              <img src="{{ imatge().url }}" alt="Gos seleccionat">
+
+            </div>
           }
 
         </section>
