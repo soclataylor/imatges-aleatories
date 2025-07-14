@@ -9,27 +9,44 @@
 -->
 <h2>Afegir una imatge</h2>
 
-<!-- Autors -->
-<label>Autors de la imatge: </label>
-<input type="text" [(ngModel)]="autorsImatge"><br><br>
+<!-- Ho faré en forma de taula per tal d'aliniar-ho millor:-->
 
-<!-- Data -->
-<label>Data de la imatge: </label>
-<input type="text" [(ngModel)]="dataImatge"><br>
+<table>
+    <!-- Autors -->
+    <tr>
+        <td><label>Autors de la imatge: </label></td>
+        <td><input type="text" [(ngModel)]="autorsImatge"><br><br></td>
+    </tr>
 
-<!-- Explicació -->
-<label>Explicació de la imatge: </label>
-<input type="text" [(ngModel)]="explicacioImatge"><br>
+    <!-- Data -->
+    <tr>
+        <td><label>Data de la imatge: </label></td>
+        <td><input type="text" [(ngModel)]="dataImatge"><br></td>
+    </tr>
 
-<!-- URL -->
-<label>URL de la imatge: </label>
-<input type="text" [(ngModel)]="urlImatge"><br>
+    <!-- Explicació -->
+    <tr>
+        <td><label>Explicació de la imatge: </label></td>
+        <td><input type="text" [(ngModel)]="explicacioImatge"><br></td>
+    </tr>
 
-<!-- Títol -->
-<label>Títol de la imatge: </label>
-<input type="text" [(ngModel)]="titolImatge"><br>
+    <!-- URL -->
+    <tr>
+        <td><label>URL de la imatge: </label></td>
+        <td><input type="text" [(ngModel)]="urlImatge"><br></td>
+    </tr>
 
-<button (click)="afegirImatge()">Afegir Imatge</button>
+    <!-- Títol -->
+    <tr>
+        <td><label>Títol de la imatge: </label></td>
+        <td><input type="text" [(ngModel)]="titolImatge"><br></td>
+    </tr>
+
+    <!-- Botó -->
+    <tr>
+        <td colspan="2"><button (click)="afegirImatge()">Afegir Imatge</button>
+    </td>
+</table>
 
 
 <!--<app-formulari-imatge (imatgeNova)="afegirImatgeDelFormulari($event)"></app-formulari-imatge>-->

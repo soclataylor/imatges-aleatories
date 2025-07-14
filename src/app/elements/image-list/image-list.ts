@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { signal, Signal, input, InputSignal,WritableSignal, output, OutputEmitterRef} from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router'; //EXERCICI 4 pel botó
 
 @Component({
   selector: 'app-image-list',
@@ -34,6 +35,8 @@ public gossos: InputSignal<{ autors: string; data: string; expl: string; url: st
   public rutaImatge = signal(''); //per rebre la ruta de la imatge que l'usuari vol afegir
   public titolImatge = signal(''); //per rebre el títol de la imatge que l'usuari vol afegir
 
+  private _router: Router = inject(Router); //EXERCICI 4: per navegar a la pàgina d'afegir imatge
+
   //Quan l'usuari fa clic a una imatge:
   public onImageClick(index: number):void
   {
@@ -61,5 +64,12 @@ public gossos: InputSignal<{ autors: string; data: string; expl: string; url: st
 
     //Emetem la imatge aleatòria seleccionada
     this.imatgeSelec.emit(this.gossos()[randomIndex]);
+  }
+
+    //EXERCICI 4: Botó per anar a afegir imatge
+  public onNavigateAfegirImatge()
+  {
+    //fem servir l'atribut privat de tipus Router per navegar a la pàgina d'afegir imatge
+    this._router.navigate(['/afegir']);
   }
 }

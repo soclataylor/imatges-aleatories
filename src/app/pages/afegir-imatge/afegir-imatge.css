@@ -1,0 +1,34 @@
+
+button{
+    padding:10px;
+    background-color:#f8007c;
+    border-radius: 15px;
+    color:white;
+    border: none;
+    width: 80%;
+
+    margin: 15px auto;
+    display: block;
+}
+
+
+button:hover
+{
+    background-color: yellow;
+    color:black;
+}
+
+input
+{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 90%;
+    margin: 10px auto;
+}
+
+table
+{
+    width: 40%;
+    margin: 0 auto;
+}
