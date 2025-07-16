@@ -7,6 +7,7 @@ import { signal, Signal, WritableSignal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ImageDetail } from './elements/image-detail/image-detail';
 import { ImageList } from './elements/image-list/image-list';
+import { Info } from './pages/info/info';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ import { ImageList } from './elements/image-list/image-list';
     Header,
     FormsModule,
     ImageDetail,
-    ImageList
+    ImageList,
+    Info
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -39,10 +41,10 @@ export class App {
   //Com que l'usuari ens entrarà la ruta de la imatge i la descripció, modifiquem l'array de gossos
   //per tal que les imatges tinguin tan la ruta com el títol:
   public gossos: WritableSignal<{ autors:string, data:string, expl: string, url:string, titol:string }[]> = signal([
-  { autors:"Mariona Batalla Taylor", data: "06/03/1985", expl: "Explicació Schnauzer", url: "img/schnauzer.jpeg", titol: "Schnauzer" },
-  { autors:"Mariona Batalla Taylor", data: "06/03/1985", expl: "Explicació Cocker", url: "img/cocker.jpeg", titol: "Cocker" },
-  { autors:"Mariona Batalla Taylor", data: "06/03/1985", expl: "Explicació Fox Terrier", url: "img/foxterrier.jpg", titol: "Fox Terrier" },
-  { autors:"Mariona Batalla Taylor", data: "06/03/1985", expl: "Explicació Teckel", url: "img/teckel.jpeg", titol: "Teckel" }
+  { autors:"Mariona Batalla Taylor", data: "06/03/1985", expl: "El Schnauzer (pronunciat [ʃnaʊtsər]) és una raça de gos que es va originar a Alemanya durant els segles XIV i XVI.[1][2][3] El seu nom prové de la paraula alemanya Schnauzer, que s'usa per designar el \"morro\", a causa del característic morro pelut que distingeix a aquesta raça de gos", url: "img/schnauzer.jpeg", titol: "Schnauzer" },
+  { autors:"Mariona Batalla Taylor", data: "06/03/1985", expl: "El cocker spaniel americà (en anglès, American Cocker Spaniel) és una raça de gos dels Estats Units, originada a partir d'exemplars del cocker spaniel anglès portats el 1800 des de la Gran Bretanya. Des dels anys 1930 la varietat nord-americana va arribar a ser tan diferent de la britànica que va ser considerada, oficialment, un raça diferent el 1946", url: "img/cocker.jpeg", titol: "Cocker" },
+  { autors:"Mariona Batalla Taylor", data: "06/03/1985", expl: "El Fox terrier és una raça de gos que era usada antigament per fer sortir les guineus dels seus amagatalls quan eren perseguides per gossos de rastreig. Actualment aquest Terrier s'utilitza com animal de companyia. Hi ha dos tipus de Fox terrier, el Fox terrier de pèl dur (filferro) i el Fox terrier de pèl llis. Tots dos es van desenvolupar a Anglaterra fa uns dos-cents anys i probablement descendeixin de diferents ancestres.", url: "img/foxterrier.jpg", titol: "Fox Terrier" },
+  { autors:"Mariona Batalla Taylor", data: "06/03/1985", expl: "El dachshund (\"gos teixó\" en alemany), també dit teckel, dackel o gos salsitxa, és una raça de gos. Té tres varietats: de pèl curt, de pèl dur i de pèl llarg. El Club més antic per a la criatura del Teckel és el Deutsche Teckelklub i.V. fundat el 1888.", url: "img/teckel.jpeg", titol: "Teckel" }
 ]);
 
   //public imatgeActual: string = ''; //guardarem la imatge que es mostrarà //ho passem a WritableSignal7

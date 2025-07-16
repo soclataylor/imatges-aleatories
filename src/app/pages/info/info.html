@@ -1,0 +1,12 @@
+<h2>Informació d'imatges</h2>
+
+@for (imatge of imatgesGossos; track $index) {
+    <div class="image-card">
+        <h3>{{ imatge.titol }}</h3>
+        <img [src]="imatge.url" alt="{{ imatge.titol }}" />
+        <p>Autors: {{ imatge.autors }}</p>
+        <p>Data: {{ imatge.data }}</p>
+        <p>Explicació: {{ imatge.expl }}</p>
+    </div>
+}
+
