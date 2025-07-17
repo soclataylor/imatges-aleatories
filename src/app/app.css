@@ -7,18 +7,6 @@
   text-align:center;
 }
 
-/*.benvinguda-i-login-logout button
-{
-  padding:10px;
-  background-color:#f8007c;
-  border-radius: 15px;
-  color:white;
-  border: none;
-  width: 20%;
-  margin: 15px auto;
-  display: block;
-}*/
-
 input
 {
   width: 20%;
@@ -27,26 +15,6 @@ input
   border: 1px solid #ccc;
 }
 
-.contenidor-flex
-{
-  display:flex;
-  align-items:flex-start;
-  height: 100%;
-  align-items:stretch;
-}
 
-app-image-list {
-  width:30%;
-  /*background-color:hotpink;*/
-}
-
-app-image-detail {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  /*background-color: rgb(105, 165, 255);*/
-}
 
 

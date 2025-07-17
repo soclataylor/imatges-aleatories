@@ -1,0 +1,17 @@
+<div class="benvinguda-i-login-logout">
+    <h2>Benvingut/da!!</h2>
+</div>
+
+<section class="contenidor-flex">
+
+    <app-image-list
+        [gossos]="gossos()"
+        (imatgeSelec)="actualitzarImatge($event)"
+        ></app-image-list>
+
+    <app-image-detail 
+        [imatge]="imatgeActual()"
+        (tancaImatge)="buidarImatgeActual()">
+    </app-image-detail>
+    
+</section>

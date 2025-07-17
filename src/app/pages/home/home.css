@@ -1,0 +1,21 @@
+.contenidor-flex
+{
+  display:flex;
+  align-items:flex-start;
+  height: 100%;
+  align-items:stretch;
+}
+
+app-image-list {
+  width:30%;
+  /*background-color:hotpink;*/
+}
+
+app-image-detail {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /*background-color: rgb(105, 165, 255);*/
+}
