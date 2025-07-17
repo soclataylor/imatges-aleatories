@@ -1,0 +1,19 @@
+#menu_nav
+{
+    list-style-type: none;
+    display:flex;
+    justify-content: space-evenly;
+    background-color: #FFA2B6;
+    margin:0;
+    color:#D6536D;
+    font-weight:bold;
+}
+#menu_nav li
+{
+    padding: 15px;
+}
+
+#menu_nav li:hover
+{
+    background-color: #f0f0f0;
+}

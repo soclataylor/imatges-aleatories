@@ -18,7 +18,7 @@ import { Info } from './pages/info/info';
     ImageDetail,
     ImageList,
     Info
-  ],
+],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
